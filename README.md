@@ -136,9 +136,3 @@ Below is a high‑level look at what each folder contains and any extra steps:
   ln -sf ~/.config/rofi/catppuccin-mocha.rasi ~/.config/rofi/current-theme.rasi
   # reload rofi or relaunch
   ```
-
----
-
-## 📮 Contact
-
-Have questions or suggestions? Open an issue or reach out at [your.email@example.com](mailto:your.email@example.com).
