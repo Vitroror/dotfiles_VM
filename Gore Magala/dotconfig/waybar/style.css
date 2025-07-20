@@ -1,0 +1,189 @@
+@import "mocha.css";
+
+* {
+  border: none;
+  border-radius: 0;
+  min-height: 0;
+  font-family: "JetBrainsMono Nerd Font", "Font Awesome 6 Free";
+  font-size: 15px;
+}
+
+window#waybar {
+  background-color: @crust;
+  transition-property: background-color;
+  transition-duration: 0.5s;
+}
+
+window#waybar.hidden {
+  opacity: 0.5;
+}
+
+#workspaces {
+  background-color: transparent;
+}
+
+#workspaces button {
+  all: initial;
+  /* Remove GTK theme values (waybar #1351) */
+  min-width: 0;
+  /* Fix weird spacing in materia (waybar #450) */
+  box-shadow: inset 0 -3px transparent;
+  /* Use box-shadow instead of border so the text isn't offset */
+  padding: 3px 10px;
+  margin: 6px 3px;
+  border-radius: 4px;
+  background-color: @base;
+  color: @mauve;
+}
+
+#workspaces button.active {
+  color: @base;
+  background-color: @mauve;
+}
+
+#workspaces button:hover {
+  box-shadow: inherit;
+  text-shadow: inherit;
+  color: @base;
+  background-color: @sky;
+}
+
+#workspaces button.urgent {
+  background-color: @peach;
+}
+
+#memory,
+#custom-power,
+#cpu,
+#pulseaudio,
+#network,
+#bluetooth,
+#custom-temperature,
+#clock,
+#tray {
+  border-radius: 4px;
+  margin: 6px 3px;
+  padding: 4px 12px;
+  background-color: @crust;
+  color: @base;
+}
+
+#memory.low {
+  background-color: @base;
+  color: @teal;
+}
+#memory.medium {
+  background-color: @base;
+  color: @peach;
+}
+#memory.high {
+  background-color: @base;
+  color: @red;
+}
+#memory:hover {
+  background-color: @mauve;
+  color: @base;
+  transition: all 0.3s ease;
+}
+
+#pulseaudio {
+  background-color: @base;
+  color: @sapphire;
+}
+#pulseaudio:hover {
+  background-color: @mauve;
+  color: @base;
+  transition: all 0.3s ease;
+}
+#bluetooth {
+    background-color: @base;
+    color: @blue;
+    padding: 4px 6px;
+    border-radius: 6px;
+    margin: 4px 3px;
+}
+#bluetooth:hover {
+  background-color: @mauve;
+  color: @base;
+  transition: all 0.3s ease;
+}
+#cpu.low {
+  background-color: @base;
+  color: @teal;
+}
+#cpu.medium {
+  background-color: @base;
+  color: @peach;
+}
+#cpu.high {
+  background-color: @base;
+  color: @red;
+}
+#cpu:hover {
+  background-color: @mauve;
+  color: @base;
+  transition: all 0.3s ease;
+}
+#custom-temperature {
+  background-color: @base;
+  color: @teal;
+
+}
+
+#custom-temperature.warning {
+  background-color: @base;
+  color: @peach;
+}
+
+#custom-temperature.critical {
+  background-color: @base;
+  color: @red;
+}
+#custom-temperature:hover {
+  background-color: @mauve;
+  color: @base;
+  transition: all 0.3s ease;
+}
+
+
+#network {
+  background-color: @base;
+  color: @flamingo;
+  padding-right: 12px;
+}
+#network:hover {
+  background-color: @mauve;
+  color: @base;
+  transition: all 0.3s ease;
+}
+
+#clock {
+  font-family: "JetBrainsMono Nerd Font";
+  background-color: @base;
+  color: @rosewater;
+  font-size: 20px; 
+
+}
+
+#custom-power {
+  background-color: @base;
+  color: @red;
+}
+#custom-power:hover {
+  background-color: @mauve;
+  color: @base;
+  transition: all 0.3s ease;
+}
+
+
+tooltip {
+  border-radius: 8px;
+  padding: 15px;
+  background-color: @crust;
+}
+
+tooltip label {
+  padding: 5px;
+  background-color: @crust;
+  color: @mauve;
+}
