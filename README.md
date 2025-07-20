@@ -35,8 +35,6 @@ Before you begin, make sure you have:
    * `swaylock` or `hyprlock` if using `hyprlock`
    * Optional: `pavucontrol`, `blueman`, `network-manager-applet`
 
-3. **Fonts**
-   Install your favorite Nerd Font (e.g., `ttf-nerd-fonts-symbols`) for icons in bars/rofi.
 
 ## 🔍 Config Breakdown
 
