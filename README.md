@@ -32,7 +32,7 @@ Before you begin, make sure you have:
    * `fastfetch`
    * `wl-clipboard`
    * `hyprshot` (for screenshots)
-   * `swaylock` or `hyprlock` if using `hyprlock`
+   * `hyprlock`
    * Optional: `pavucontrol`, `blueman`, `network-manager-applet`
 
 
