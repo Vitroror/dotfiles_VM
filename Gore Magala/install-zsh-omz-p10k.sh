@@ -1,52 +1,50 @@
 #!/usr/bin/env bash
-set -e
 
-echo "👉 Installing Zsh if missing..."
-if ! command -v zsh >/dev/null; then
-  if [ -f /etc/debian_version ]; then
-    sudo apt update && sudo apt install -y zsh git curl
-  elif [ -f /etc/arch-release ]; then
-    sudo pacman -Sy --noconfirm zsh git curl
-  else
-    echo "Unsupported distro—please install zsh, git, curl manually." >&2
-    exit 1
-  fi
+# Automated setup for Zsh, Oh My Zsh, and Powerlevel10k on Fedora Workstation 42
+# Usage: chmod +x setup_shell.sh && ./setup_shell.sh
+
+set -euo pipefail
+
+# Variables\NDNF_CMD="sudo dnf"
+ZSH_CUSTOM="${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}"
+
+# 1. Install dependencies
+echo "Installing dependencies: zsh, git, curl..."
+sudo dnf install -y zsh git curl
+
+# 2. Set Zsh as default shell
+if [ "$(basename "$SHELL")" != "zsh" ]; then
+  echo "Changing default shell to zsh for user $USER"
+  chsh -s "$(which zsh)" "$USER"
+fi
+
+# 3. Install Oh My Zsh (unattended)
+if [ ! -d "$HOME/.oh-my-zsh" ]; then
+  echo "Installing Oh My Zsh..."
+  sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" --unattended
 else
-  echo "✅ Zsh already installed."
+  echo "Oh My Zsh already installed, skipping..."
 fi
 
-echo "🔧 Setting Zsh as default shell..."
-chsh -s "$(command -v zsh)" || echo "⚠️ Could not change shell—maybe do manually."
-
-echo "📦 Installing Oh My Zsh..."
-RUNZSH=no KEEP_ZSHRC=yes \
-  sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-
-echo "🎨 Installing Powerlevel10k theme..."
-git clone --depth=1 https://github.com/romkatv/powerlevel10k.git \
-  "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k"
-
-echo "🔌 Installing plugins: autosuggestions & syntax-highlighting..."
-git clone --depth=1 https://github.com/zsh-users/zsh-autosuggestions.git \
-  "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-autosuggestions"
-git clone --depth=1 https://github.com/zsh-users/zsh-syntax-highlighting.git \
-  "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting"
-
-echo "📝 Generating new ~/.zshrc..."
-cat > ~/.zshrc <<'EOF'
-# Instant prompt for Powerlevel10k
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+# 4. Install Powerlevel10k theme
+if [ ! -d "$ZSH_CUSTOM/themes/powerlevel10k" ]; then
+  echo "Cloning Powerlevel10k into $ZSH_CUSTOM/themes..."
+  git clone --depth=1 https://github.com/romkatv/powerlevel10k.git "$ZSH_CUSTOM/themes/powerlevel10k"
+else
+  echo "Powerlevel10k already present, skipping clone..."
 fi
 
-export ZSH="$HOME/.oh-my-zsh"
-ZSH_THEME="powerlevel10k/powerlevel10k"
-plugins=(git zsh-autosuggestions zsh-syntax-highlighting)
+# 5. Configure .zshrc to use Powerlevel10k
+ZSHRC="$HOME/.zshrc"
+echo "Configuring \$ZSHRC to use Powerlevel10k theme..."
 
-source "$ZSH/oh-my-zsh.sh"
-[[ -f "$HOME/.p10k.zsh" ]] && source "$HOME/.p10k.zsh"
-EOF
+if grep -q "^ZSH_THEME=" "$ZSHRC"; then
+  sed -i 's|^ZSH_THEME=.*|ZSH_THEME="powerlevel10k/powerlevel10k"|' "$ZSHRC"
+else
+  echo 'ZSH_THEME="powerlevel10k/powerlevel10k"' >> "$ZSHRC"
+fi
 
-echo "✅ Installation complete!"
-echo "Now restart your terminal or run: exec zsh"
-echo "Then run: p10k configure  🔧 to pick your prompt style."
+# 6. Prompt user to restart shell
+echo
+echo "Installation complete!"
+echo "Please close and reopen your terminal, or run 'exec zsh' to start using Zsh with Powerlevel10k."
