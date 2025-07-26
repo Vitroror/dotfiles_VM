@@ -6,7 +6,7 @@
     "width": 10,           			   // Width in characters (for image logos)
     "height": 10,          			   // Height in characters (for image logos)
     "padding": {
-        "top": 4,          			   // Top padding
+        "top": 0,          			   // Top padding
         "left": 4,         			   // Left padding
         "right": 4         		           // Right padding
     },
