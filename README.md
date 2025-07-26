@@ -1,6 +1,10 @@
 # dotfiles\_WM
 
-Dotfiles and configs for my personal Wayland/Hyprland desktop setups.
+# Rices:
+
+## Gore_Magala : Main Desktop
+
+## Kirin : Notebook (coming soon)
 
 ## 📖 Overview
 
@@ -13,7 +17,7 @@ This repo contains all the configuration files I use on my Wayland-based desktop
 * **rofi** (application launcher)
 * **waybar** (status bar)
 
----
+
 
 ## 📦 Prerequisites
 
@@ -39,5 +43,5 @@ Before you begin, make sure you have:
    * `sudo chmod +x install-zsh-omz-p10k.sh`
    * `./install-zsh-omz-p10k.sh`
    * `exec zsh`
-   * and it should work without much hassle
+   * and it should work without much hassle. The script is set up to work with fedora's dnf, but adjusting it for pacman or apt should not be a problem
 
