@@ -1,0 +1,188 @@
+@import "themes/gruvbox-dark.css";
+
+* {
+  border: none;
+  border-radius: 0;
+  min-height: 0;
+  font-family: "Terminess Nerd Font", "Font Awesome 6 Free";
+  font-size: 15px;
+}
+
+window#waybar {
+  background-color: @bg0_h;
+  transition-property: background-color;
+  transition-duration: 0.5s;
+}
+
+window#waybar.hidden {
+  opacity: 0.5;
+}
+
+#workspaces {
+  background-color: transparent;
+}
+
+#workspaces button {
+  all: initial;
+  /* Remove GTK theme values (waybar #1351) */
+  min-width: 0;
+  /* Fix weird spacing in materia (waybar #450) */
+  box-shadow: inset 0 -3px transparent;
+  /* Use box-shadow instead of border so the text isn't offset */
+  padding: 3px 10px;
+  margin: 6px 3px;
+  border-radius: 4px;
+  background-color: @bg0_h;
+  color: @fg0;
+}
+
+#workspaces button.active {
+  color: @bg0_h;
+  background-color: @blue;
+}
+
+#workspaces button:hover {
+  box-shadow: inherit;
+  text-shadow: inherit;
+  color: @bright_blue;
+  background-color: @bg0_h;
+}
+
+#workspaces button.urgent {
+  background-color: @bright_orange;
+}
+
+#memory,
+#battery,
+#custom-power,
+#cpu,
+#pulseaudio,
+#network,
+#bluetooth,
+#custom-temperature,
+#clock,
+#tray {
+  border-radius: 4px;
+  margin: 6px 3px;
+  padding: 4px 12px;
+  background-color: @bg0_h;
+  color: @bg0_h;
+}
+#backlight {
+  background-color: @bg0_h;
+  color: @bright_blue;
+}
+#backlight:hover {
+  background-color: @bg0_h;
+  color: @fg0;
+  transition: all 0.3s ease;
+}
+#battery:hover {
+  background-color: @bg0_h;
+  color: @fg0;
+  transition: all 0.3s ease;
+}
+#battery {
+  background-color: @bg0_h;
+  color: @bright_blue;
+}
+#battery.warning {
+  background-color: @bg0_h;
+  color: @bright_orange;
+}
+#battery.critical {
+  background-color: @bg0_h;
+  color: @bright_red;
+}
+
+#memory.low {
+  background-color: @bg0_h;
+  color: @bright_aqua;
+}
+#memory.medium {
+  background-color: @bg0_h;
+  color: @bright_orange;
+}
+#memory.high {
+  background-color: @bg0_h;
+  color: @bright_red;
+}
+#memory:hover {
+  background-color: @bg0_h;
+  color: @fg0;
+  transition: all 0.3s ease;
+}
+
+#pulseaudio {
+  background-color: @bg0_h;
+  color: @bright_blue;
+}
+#pulseaudio:hover {
+  background-color: @bg0_h;
+  color: @fg0;
+  transition: all 0.3s ease;
+}
+#bluetooth {
+    background-color: @bg0_h;
+    color: @bright_blue;
+    padding: 4px 6px;
+    border-radius: 6px;
+    margin: 4px 3px;
+}
+#bluetooth:hover {
+  background-color: @bg0_h;
+  color: @fg0;
+  transition: all 0.3s ease;
+}
+#cpu.low {
+  background-color: @bg0_h;
+  color: @bright_aqua;
+}
+#cpu.medium {
+  background-color: @bg0_h;
+  color: @bright_orange;
+}
+#cpu.high {
+  background-color: @bgo_h;
+  color: @bright_red;
+}
+#cpu:hover {
+  background-color: @bg0_h;
+  color: @fg0;
+  transition: all 0.3s ease;
+}
+#network {
+  background-color: @bg0_h;
+  color: @bright_blue;
+  padding-right: 12px;
+}
+#network:hover {
+  background-color: @bg0_h;
+  color: @fg0;
+  transition: all 0.3s ease;
+}
+#clock {
+  font-family: "Terminess Nerd Font";
+  background-color: @bg0_h;
+  color: @bright_blue;
+  font-size: 20px; 
+}
+#custom-power {
+  background-color: @bg0_h;
+  color: @red;
+}
+#custom-power:hover {
+  background-color: @bg0-h;
+  color: @bright_red;
+  transition: all 0.3s ease;
+}
+tooltip {
+  border-radius: 8px;
+  padding: 15px;
+  background-color: @bg0_h;
+}
+tooltip label {
+  padding: 5px;
+  background-color: @bg0_h;
+  color: @bright_blue;
+}
