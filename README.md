@@ -4,7 +4,7 @@
 
 * Gore_Magala : Main Desktop
 
-* Kirin : Notebook (coming soon)
+* Kirin : Notebook
 
 ## 📖 Overview
 
