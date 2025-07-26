@@ -75,11 +75,11 @@
     },
     "network": {
         // "interface": "wlp2*", // (Optional) To force the use of this interface
-        "format-wifi": " : {essid} ({signalStrength}%)",
-        "format-ethernet": "\uf796 : Connected",
+        "format-wifi": " ({signalStrength}%)",
+        "format-ethernet": "\uf796",
         "tooltip-format": "{ifname} via {gwaddr} ",
         "format-linked": "{ifname} (No IP) ",
-        "format-disconnected": "Disconnected ⚠",
+        "format-disconnected": "󰣼",
 	"on-click": "nm-connection-editor",
 	"interval": 5,
 	"nospacing": 1,
@@ -105,8 +105,8 @@
 	"on-click-right": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
     },
   "bluetooth": {
-    "format": " : Not Connected",
-    "format-connected": " : Connected",
+    "format": "󰂲",
+    "format-connected": "",
     "tooltip": true,
     "tooltip-format": "Bluetooth Settings",
     "on-click": "blueman-manager",
