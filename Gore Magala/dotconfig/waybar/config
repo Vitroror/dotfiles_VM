@@ -1,0 +1,138 @@
+// -*- mode: jsonc -*-
+{
+    // "layer": "top", // Waybar at top layer
+    // "position": "bottom", // Waybar position (top|bottom|left|right)
+    "height": 30, // Waybar height (to be removed for auto height)
+    // "width": 1280, // Waybar width
+    "spacing": 4, // Gaps between modules (4px)
+    // Choose the order of the modules
+    "modules-left": [
+        "clock",
+     ],
+    "modules-center": [
+        "hyprland/workspaces"
+    ],
+    "modules-right": [
+        "pulseaudio",
+        "network",
+	"bluetooth",
+	"custom/temperature",
+        "cpu",
+        "memory",
+        "tray",
+        "custom/power"
+    ],
+    // Modules configuration
+     "hyprland/workspaces": {
+        "on-click": "activate",
+         "disable-scroll": true,
+         "all-outputs": true,
+         "warp-on-scroll": false,
+         "format": "{name}",
+         "format-icons": {
+             "urgent": "",
+             "focused": "",
+             "default": ""
+         }
+     },
+    "tray": {
+         "icon-size": 21,
+         "spacing": 20,
+         "icons": {
+         "blueman": "bluetooth",
+         "TelegramDesktop": "$HOME/.local/share/icons/hicolor/16x16/apps/telegram.png"
+         }
+    },
+    "custom/temperature": {
+    "exec": "/home/vm/.config/waybar/scripts/cpu_temp.sh",
+    "interval": 5,
+    "return-type": "json",
+    "on-click": "kitty btop",
+    },
+    "clock": {
+        "timezone": "America/Sao_Paulo",
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+        "format-alt": "{:%Y-%m-%d}"
+    },
+    "cpu": {
+        "format": " : {usage}%" ,
+        "tooltip": false,
+	"on-click": "kitty btop",
+	"states": {
+	    "low": 0,
+	    "medium": 50,
+	    "high": 80,
+	}
+    },
+    "memory": {
+        "format": "\uf538 : {}%",
+	"states": {
+	    "low": 0,
+	    "medium": 50,
+	    "high": 80,
+	},
+	"on-click": "kitty btop",
+    },
+    "network": {
+        // "interface": "wlp2*", // (Optional) To force the use of this interface
+        "format-wifi": " : {essid} ({signalStrength}%)",
+        "format-ethernet": "\uf796 : Connected",
+        "tooltip-format": "{ifname} via {gwaddr} ",
+        "format-linked": "{ifname} (No IP) ",
+        "format-disconnected": "Disconnected ⚠",
+	"on-click": "nm-connection-editor",
+	"interval": 5,
+	"nospacing": 1,
+    },
+    "pulseaudio": {
+        // "scroll-step": 1, // %, can be a float
+        "format": "{volume}% {icon}  {format_source}",
+        "format-bluetooth": "{volume}% {icon}",
+        "format-bluetooth-muted": " {icon}",
+        "format-muted": " {format_source}",
+        "format-source": "{volume}% ",
+        "format-source-muted": "",
+        "format-icons": {
+            "headphone": "",
+            "hands-free": "",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": ["", "", ""]
+        },
+        "on-click": "pavucontrol",
+	"on-click-right": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
+    },
+  "bluetooth": {
+    "format": " : Not Connected",
+    "format-connected": " : Connected",
+    "tooltip": true,
+    "tooltip-format": "Bluetooth Settings",
+    "on-click": "blueman-manager",
+   },
+    "custom/media": {
+        "format": "{icon} {text}",
+        "return-type": "json",
+        "max-length": 40,
+        "format-icons": {
+            "spotify": "",
+            "default": "🎜"
+        },
+        "escape": true,
+        "exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null" // Script in resources folder
+        // "exec": "$HOME/.config/waybar/mediaplayer.py --player spotify 2> /dev/null" // Filter player based on name
+    },
+    "custom/power": {
+        "format" : "⏻ ",
+		"tooltip": false,
+		"menu": "on-click",
+		"menu-file": "$HOME/.config/waybar/scripts/power_menu.xml", // Menu file in resources folder
+		"menu-actions": {
+			"shutdown": "poweroff",
+			"reboot": "reboot",
+			"suspend": "systemctl suspend",
+			"hibernate": "systemctl hibernate"
+		}
+    }
+}
