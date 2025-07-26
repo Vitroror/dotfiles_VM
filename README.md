@@ -36,3 +36,8 @@ Before you begin, make sure you have:
 
 3. **Shell installation**
    * There is also a script that automatically installs zsh , oh-my-zsh and powerlevel10k for you simply run
+   * 'sudo chmod +x install-zsh-omz-p10k.sh'
+   * './install-zsh-omz-p10k.sh'
+   * 'exec zsh'
+   * and it should work flawlessly
+
