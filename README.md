@@ -34,5 +34,5 @@ Before you begin, make sure you have:
    * `hyprlock`
    * Optional: `pavucontrol`, `blueman`, `network-manager-applet`
 
-3. **Powerlevel10k installation**
+3. **Shell installation**
    * There is also a script that automatically installs zsh , oh-my-zsh and powerlevel10k for you simply run
