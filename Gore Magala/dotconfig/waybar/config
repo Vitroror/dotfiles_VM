@@ -8,7 +8,6 @@
     // Choose the order of the modules
     "modules-left": [
         "clock",
-	"hyprland/window"
      ],
     "modules-center": [
         "hyprland/workspaces"
@@ -112,18 +111,6 @@
     "tooltip-format": "Bluetooth Settings",
     "on-click": "blueman-manager",
    },
-    "custom/media": {
-        "format": "{icon} {text}",
-        "return-type": "json",
-        "max-length": 40,
-        "format-icons": {
-            "spotify": "",
-            "default": "🎜"
-        },
-        "escape": true,
-        "exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null" // Script in resources folder
-        // "exec": "$HOME/.config/waybar/mediaplayer.py --player spotify 2> /dev/null" // Filter player based on name
-    },
     "custom/power": {
         "format" : "⏻ ",
 		"tooltip": false,
