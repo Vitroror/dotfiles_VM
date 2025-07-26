@@ -48,3 +48,4 @@ Before you begin, make sure you have:
 ## Notes
 
 * for GTK i have skipped trying to port it. I noticed that i cant be bothered to port these specific interfaces, so just as a reminder, if you're on a GNOME based distro like me just look for a theme you enjoy on gnome-look, dump the theme and icon files in the `.themes` and `.icons` folders, install `gnome-tweaks` if not installed, and set it up from there
+* I have also added a separate script to install all nerd fonts, just in case you dont feel like asking ChatGPT like i do everytime i need to. The usage is the same as the powerlevel10k script
