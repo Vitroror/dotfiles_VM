@@ -2,9 +2,9 @@
 
 # Rices:
 
-## Gore_Magala : Main Desktop
+** Gore_Magala : Main Desktop
 
-## Kirin : Notebook (coming soon)
+** Kirin : Notebook (coming soon)
 
 ## 📖 Overview
 
