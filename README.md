@@ -1,5 +1,8 @@
 # Rice: Gore_Magala
 
+## Preview:
+
+
 ## 📖 Overview
 
 This repo contains all the configuration files I use on my Wayland-based desktop (Hyprland) and the following utilities:
@@ -12,6 +15,7 @@ This repo contains all the configuration files I use on my Wayland-based desktop
 * **waybar** (status bar)
   
 ## Usage
+![Uploading showcase.png…]()
 
 Before you begin, make sure you have:
 
