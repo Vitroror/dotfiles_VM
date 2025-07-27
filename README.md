@@ -1,10 +1,4 @@
-# dotfiles\_WM
-
-# Rices:
-
-* Gore_Magala : Main Desktop
-
-* Kirin : Notebook
+# Rice: Gore_Magala
 
 ## 📖 Overview
 
@@ -16,17 +10,15 @@ This repo contains all the configuration files I use on my Wayland-based desktop
 * **nvim** (Neovim editor)
 * **rofi** (application launcher)
 * **waybar** (status bar)
-
-
-
-## 📦 Prerequisites
+  
+## Usage
 
 Before you begin, make sure you have:
 
 1. **A Wayland-capable Linux distribution**
    (e.g., Arch, Fedora, openSUSE, etc.)
 
-2. **Installed packages**
+2. **Install packages**
 
    * `hyprland` + dependencies: `wlroots`, `wayland-protocols`, `xdg-desktop-portal-hyprland`
    * `waybar`
