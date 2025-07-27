@@ -2,6 +2,7 @@
 
 ## Preview:
 
+(https://github.com/Vitroror/dotfiles_VM/blob/main/img/showcase.png)
 
 ## 📖 Overview
 
@@ -15,7 +16,6 @@ This repo contains all the configuration files I use on my Wayland-based desktop
 * **waybar** (status bar)
   
 ## Usage
-![Uploading showcase.png…]()
 
 Before you begin, make sure you have:
 
