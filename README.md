@@ -2,7 +2,7 @@
 
 ## Preview:
 
-![alt text](https://github.com/Vitroror/dotfiles_VM/blob/main/img/showcase.png)
+![](https://github.com/Vitroror/dotfiles_VM/blob/main/img/showcase.png)
 
 ## 📖 Overview
 
